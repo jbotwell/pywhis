@@ -6,6 +6,7 @@ development as written pieces
 
 ## TODOS
 - [x] Usable script for transcription
+- [x] Edit setup so it can be installed
 - [ ] Use threading
 - [ ] Better validation
 - [ ] Idempotency
