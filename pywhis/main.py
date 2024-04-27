@@ -1,6 +1,6 @@
 import sys
 import os
-import openai
+from openai import OpenAI
 from typing import Callable, BinaryIO
 
 
@@ -27,8 +27,8 @@ def do_to_files_in_dir(directory: str, f: Callable[[BinaryIO], None]):
 
 def transcribe_audio(audio_file, destination_dir):
     file_name = os.path.basename(audio_file.name)
-    openai.api_key = os.environ["OPENAI_API_KEY"]
-    transcript = openai.Audio.transcribe("whisper-1", audio_file)
+    client = OpenAI()
+    transcript = client.audio.transcriptions.create(model="whisper-1", file=audio_file)
 
     with open(os.path.join(destination_dir, file_name + ".md"), "w") as text_file:
         text_file.write(transcript.text)
