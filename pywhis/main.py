@@ -27,7 +27,6 @@ def do_to_files_in_dir(directory: str, f: Callable[[BinaryIO], None]):
 
 def transcribe_audio(audio_file, destination_dir):
     file_name = os.path.basename(audio_file.name)
-    print("file_name: ", file_name)
     openai.api_key = os.environ["OPENAI_API_KEY"]
     transcript = openai.Audio.transcribe("whisper-1", audio_file)
 

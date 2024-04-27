@@ -11,3 +11,12 @@ development as written pieces
 - [ ] Better validation
 - [ ] Idempotency
 - [ ] Split logic out of main
+
+## To Run
+```bash
+source ./venv/bin/activate
+export OPENAI_API_KEY=$(pass openai)
+pip install dist/pywhis-<...>
+```
+You'll probably want to convert wav files to mp3. There's a size limit, so that
+reduces the chance that you overshoot it
