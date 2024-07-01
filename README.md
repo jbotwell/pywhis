@@ -4,19 +4,14 @@ This is a CLI application to do TTS conversion using OpenAI's Whisper model,
 intended for personal use, with an emphasis on capturing thoughts for
 development as written pieces
 
-## TODOS
-- [x] Usable script for transcription
-- [x] Edit setup so it can be installed
-- [ ] Use threading
-- [ ] Better validation
-- [ ] Idempotency
-- [ ] Split logic out of main
+If you're not me, you're more than welcome to use it, but I'm sure there are 
+more polished projects that do the same thing. If you have nix, you can just
 
-## To Run
 ```bash
-source ./venv/bin/activate
 export OPENAI_API_KEY=$(pass openai)
-pip install dist/pywhis-<...>
+nix run github:jbotwell/pywhis <source_dir> <destination_dir>
 ```
+
 You'll probably want to convert wav files to mp3. There's a size limit, so that
-reduces the chance that you overshoot it
+reduces the chance that you overshoot it. I use ogg opus, and I've never overshot
+it.
