@@ -1,3 +1,4 @@
 dist/
 pywhis.egg-info/
 venv/
+.aider*
