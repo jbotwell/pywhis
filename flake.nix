@@ -7,6 +7,7 @@
   };
 
   outputs = {
+    self,
     nixpkgs,
     flake-utils,
   }:
@@ -19,6 +20,7 @@
           python3Packages.pip
           python3Packages.setuptools
           python3Packages.wheel
+          python3Packages.openai
         ];
       };
 
@@ -26,12 +28,13 @@
         pname = "pywhis";
         version = "0.1.0";
 
-        # src = ./.;
+        src = ./.;
 
         propagatedBuildInputs = with pkgs; [
           python3Packages.pip
           python3Packages.setuptools
           python3Packages.wheel
+          python3Packages.openai
         ];
       };
     });
