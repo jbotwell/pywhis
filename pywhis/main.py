@@ -1,6 +1,6 @@
 import sys
 import os
-from openai import OpenAI
+from groq import Groq
 from typing import Callable, BinaryIO
 
 
@@ -27,8 +27,8 @@ def do_to_files_in_dir(directory: str, f: Callable[[BinaryIO], None]):
 
 def transcribe_audio(audio_file, destination_dir):
     file_name = os.path.basename(audio_file.name)
-    client = OpenAI()
-    transcript = client.audio.transcriptions.create(model="whisper-1", file=audio_file)
+    client = Groq()
+    transcript = client.audio.transcriptions.create(model="distil-whisper-large-v3-en", file=audio_file)
 
     with open(os.path.join(destination_dir, file_name + ".md"), "w") as text_file:
         text_file.write(transcript.text)
